@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe ✨</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="blob blob4"></div>
+    <div class="stars" id="stars"></div>
+
+    <section class="screen" id="setup">
+      <div class="card xoTop">
+        <div class="logo">
+          <div class="lx">x</div>
+          <div class="sep">·</div>
+          <div class="lo">o</div>
+        </div>
+        <div class="tagline">Tic · Tac · Toe</div>
+      </div>
+      <div class="card inputCard">
+        <div class="field1">
+          <div class="inputLabel playerX">
+            <span class="dot pink"></span> PLAYER X
+          </div>
+          <input
+            class="finput xf"
+            id="npx"
+            type="text"
+            placeholder="Enter your name…"
+            maxlength="16"
+          />
+        </div>
+        <div class="field2">
+          <div class="inputLabel playerO">
+            <span class="dot lav"></span> PLAYER O
+          </div>
+          <input
+            class="finput of"
+            id="npo"
+            type="text"
+            placeholder="Enter opponent name…"
+            maxlength="16"
+          />
+        </div>
+      </div>
+      <button id="startButton" class="start-btn">Let's Play</button>
+    </section>
+    <section class="screen hidden" id="game">
+      <div class="card gameBoard">
+        <div class="topSection">
+          <button class="ibtn" onclick="goBack()">
+            <i class="fa-solid fa-angles-left"></i>
+          </button>
+          <div class="mode-lbl" id="mLabel">2 Players</div>
+          <button class="ibtn bell" id="sndBtn" onclick="toggleSound()">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+        </div>
+
+        <div class="scoreboard">
+          <div class="sc xsc on" id="cX">
+            <span class="sc-tag">✕ Player</span>
+            <span class="sc-name" id="dX">Player X</span>
+            <span class="sc-num" id="sX">0</span>
+          </div>
+          <div class="draw-mid">
+            <span class="sc-tag">Draw</span>
+            <span class="sc-num" id="sD">0</span>
+          </div>
+          <div class="sc osc" id="cO">
+            <span class="sc-tag">○ Player</span>
+            <span class="sc-name" id="dO">Player O</span>
+            <span class="sc-num" id="sO">0</span>
+          </div>
+        </div>
+
+        <div class="status-wrap" id="status">Player X turn</div>
+
+        <div class="board-wrap">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+        </div>
+
+        <div class="action-row">
+          <button class="abtn" onclick="resetScores()">Reset</button>
+          <button class="abtn prime" onclick="newRound()">New Round ✨</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ OVERLAY ════ -->
+    <div class="overlay hidden" id="overlay">
+      <div class="rcrd">
+        <div class="r-icon" id="rIcon">🎉</div>
+        <div class="r-head" id="rHead"></div>
+        <div class="r-sub" id="rSub"></div>
+        <div class="confetti-row">
+          <div class="conf-dot"></div>
+          <div class="conf-dot"></div>
+          <div class="conf-dot"></div>
+          <div class="conf-dot"></div>
+          <div class="conf-dot"></div>
+        </div>
+        <div class="r-btns">
+          <button class="abtn" onclick="closeOverlay()">Close</button>
+          <button
+            class="abtn prime"
+            onclick="
+              newRound();
+              closeOverlay();
+            "
+          >
+            Again! ✨
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
