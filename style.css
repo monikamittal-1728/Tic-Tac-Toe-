@@ -33,7 +33,8 @@
   --muted: #7a6f99;
   --muted2: #3d3460;
 
-  --cell-size: 7.2rem;
+  --cell-size: min(7rem, calc((100vw - 3rem) / 3 - 0.6rem));
+  /* --cell-size: 7rem; */
   --mark-size: calc(var(--cell-size) * 0.9);
 
   --r: 20px;
@@ -530,18 +531,22 @@ body {
 /* board grid */
 
 .board-wrap {
+  grid-template-columns: repeat(3, 1fr);
+  width: min(100%, 400px); /* respects the card's max-width */
+  padding: 0 14px;
+
   margin-top: 1rem;
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, auto);
   justify-content: center;
   align-content: center;
   gap: 0.6rem;
 }
 
 .cell {
-  width: var(--cell-size);
-  height: var(--cell-size);
+ aspect-ratio: 1 / 1;      /* keeps cells square */
+  width: 100%;               /* fills the grid column */
+  height: auto;              /* driven by aspect-ratio */
+
   background: var(--surface);
   border-radius: var(--r-sm);
   border: 2px solid var(--muted2);

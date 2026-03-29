@@ -240,6 +240,9 @@ function startGame() {
   gameData.playing = true;
   document.getElementById("setup").classList.add("hidden");
   document.getElementById("game").classList.remove("hidden");
+    // ── Clear inputs ──
+  document.getElementById("npx").value = "";
+  document.getElementById("npo").value = "";
   updateSessionData();
   newRound();
 }
